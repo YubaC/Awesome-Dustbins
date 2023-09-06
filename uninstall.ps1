@@ -2,15 +2,6 @@
 $installPath = "$env:LOCALAPPDATA\Programs\recyclebin"
 $regFileName = "uninstall.reg"
 
-# 检查当前用户是否为管理员
-$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-
-# 如果当前用户不是管理员，则以管理员身份重新启动脚本
-if (!$isAdmin) {
-    Start-Process "$installPath\uninstall.exe" "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    exit
-}
-
 # 进入安装目录
 Set-Location $installPath
 

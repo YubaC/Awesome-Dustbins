@@ -1,14 +1,3 @@
-# 检查当前用户是否为管理员
-$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-
-# 如果当前用户不是管理员，则以管理员身份重新启动脚本
-if (!$isAdmin) {
-    Write-Host "Please run this program as administrator."
-    Write-Host "Press any key to exit..."
-    $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | Out-Null
-    Exit
-}
-
 # 常量
 $programName = "Awesome Dustbins"
 $programVersion = "1.0.0"
